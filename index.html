@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>#(*$(#&*$(*$(*@($@*($&@(*$&(@*$@$</title>
+    <title>\SECRET FILE!</title>
 
     <style>
+       
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -13,44 +14,54 @@
         }
 
         body {
+         
             display: flex;
             justify-content: center; 
             align-items: center;    
             height: 100vh;
             margin: 0;
             font-family: sans-serif;
-            
-            background: linear-gradient(-45deg, #8A2BE2, #4169E1, #00008B, #8A2BE2);
-            background-size: 400% 400%;
+            color: white;
+            position: relative; 
+
+            background: linear-gradient(-45deg, #1A0033, #000040, #00001A, #1A0033);
+            background-size: 400% 400%; 
             animation: gradientShift 15s ease infinite; 
-            color: white; 
         }
 
+        #backgroundVideo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; 
+            display: none; 
+        }
+        
+       
         #surpriseButton {
             padding: 20px 40px;
             font-size: 24px;
             font-weight: bold;
             
-
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1); 
+            border: 1px solid rgba(255, 255, 255, 0.3); 
             color: white; 
             cursor: pointer;
             border-radius: 15px; 
             
-           
             backdrop-filter: blur(10px); 
             -webkit-backdrop-filter: blur(10px); 
             
-           
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); 
             transition: all 0.3s ease;
         }
 
         #surpriseButton:hover {
-            
             background: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 25px rgba(255, 255, 255, 1);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 1); 
         }
 
         #mainImage {
@@ -58,12 +69,15 @@
             max-height: 90vh;
             border-radius: 15px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); 
+            z-index: 10; /* Щоб фото було поверх відео */
         }
     </style>
 </head>
 <body>
 
-    <button id="surpriseButton">Нажми мене</button>
+    <video id="backgroundVideo" loop muted src="1.mp4"></video>
+
+    <button id="surpriseButton">нажми мене</button>
 
     <img id="mainImage" src="1.jpg" alt="Секретне фото" style="display: none;">
 
@@ -76,17 +90,25 @@
             const button = document.getElementById('surpriseButton');
             const image = document.getElementById('mainImage');
             const audio = document.getElementById('mainAudio');
+            const video = document.getElementById('backgroundVideo');
 
             button.addEventListener('click', function() {
                 
-                
+        
                 button.style.display = 'none';
                 
-                
+           
                 image.style.display = 'block';
                 
                 
                 audio.play();
+
+          
+                
+             
+                video.style.display = 'block';
+
+                video.play();
             });
 
         });
