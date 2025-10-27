@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кнопка з Сюрпризом</title>
+
+    <style>
+        body {
+            /* Використовуємо Flexbox для легкого центрування */
+            display: flex;
+            justify-content: center; /* Центрування по горизонталі */
+            align-items: center;    /* Центрування по вертикалі */
+            
+            /* Розтягуємо тіло документа на всю висоту екрана */
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4; /* Світлий фон */
+            font-family: Arial, sans-serif;
+        }
+
+        #surpriseButton {
+            padding: 20px 40px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            background-color: #007bff; /* Синій колір */
+            border: none;
+            border-radius: 10px;
+            cursor: pointer; /* Змінює курсор при наведенні */
+            transition: background-color 0.3s; /* Плавна зміна кольору */
+        }
+
+        #surpriseButton:hover {
+            background-color: #0056b3; /* Темніший синій при наведенні */
+        }
+
+        #mainImage {
+            /* Стилі для фото, коли воно з'явиться */
+            max-width: 90%; /* Щоб не виходило за межі екрана */
+            max-height: 90vh;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Красива тінь */
+        }
+    </style>
+</head>
+<body>
+
+    <button id="surpriseButton">🎁 Натисни Мене!</button>
+
+    <img id="mainImage" src="your-image.jpg" alt="Ваше фото" style="display: none;">
+
+    <audio id="mainAudio" src="your-sound.mp3"></audio>
+
+
+    <script>
+        // Чекаємо, поки вся сторінка завантажиться
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Знаходимо наші елементи на сторінці за їхніми ID
+            const button = document.getElementById('surpriseButton');
+            const image = document.getElementById('mainImage');
+            const audio = document.getElementById('mainAudio');
+
+            // Додаємо "слухача подій": що робити, коли на кнопку натиснуть
+            button.addEventListener('click', function() {
+                
+                // 1. Ховаємо саму кнопку
+                button.style.display = 'none';
+                
+                // 2. Показуємо наше фото
+                image.style.display = 'block';
+                
+                // 3. Запускаємо відтворення звуку
+                audio.play();
+            });
+
+        });
+    </script>
+
+</body>
+</html>
