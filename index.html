@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сайт з Градієнтом</title>
+    <title>#(*$(#&*$(*$(*@($@*($&@(*$&(@*$@$</title>
 
     <style>
-        /* Анімація для градієнтного переливу */
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -14,7 +13,6 @@
         }
 
         body {
-            /* Центрування контенту */
             display: flex;
             justify-content: center; 
             align-items: center;    
@@ -22,11 +20,10 @@
             margin: 0;
             font-family: sans-serif;
             
-            /* Градієнтний фон: Фіолетовий, Синій, Темно-синій */
             background: linear-gradient(-45deg, #8A2BE2, #4169E1, #00008B, #8A2BE2);
-            background-size: 400% 400%; /* Розтягуємо, щоб було місце для анімації */
-            animation: gradientShift 15s ease infinite; /* Запускаємо анімацію */
-            color: white; /* Білий текст для контрасту */
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite; 
+            color: white; 
         }
 
         #surpriseButton {
@@ -34,26 +31,26 @@
             font-size: 24px;
             font-weight: bold;
             
-            /* СТИЛІ ДЛЯ ПРОЗОРОЇ КНОПКИ З ЕФЕКТОМ */
-            background: rgba(255, 255, 255, 0.1); /* Прозорий фон */
-            border: 1px solid rgba(255, 255, 255, 0.3); /* Ніжна біла рамка */
+
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             color: white; 
             cursor: pointer;
             border-radius: 15px; 
             
-            /* ЕФЕКТ БЛЮРУ (Glassmorphism) */
+           
             backdrop-filter: blur(10px); 
-            -webkit-backdrop-filter: blur(10px); /* Підтримка старих браузерів */
+            -webkit-backdrop-filter: blur(10px); 
             
-            /* НІЖНА БІЛА ПІДСВІТКА (Тінь по краях) */
+           
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); 
             transition: all 0.3s ease;
         }
 
         #surpriseButton:hover {
-            /* Ефект при наведенні */
+            
             background: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 25px rgba(255, 255, 255, 1); /* Яскравіша підсвітка */
+            box-shadow: 0 0 25px rgba(255, 255, 255, 1);
         }
 
         #mainImage {
@@ -66,7 +63,7 @@
 </head>
 <body>
 
-    <button id="surpriseButton">нажми мене</button>
+    <button id="surpriseButton">Нажми мене</button>
 
     <img id="mainImage" src="your-image.jpg" alt="Секретне фото" style="display: none;">
 
@@ -82,13 +79,13 @@
 
             button.addEventListener('click', function() {
                 
-                // Ховаємо кнопку
+                
                 button.style.display = 'none';
                 
-                // Показуємо фото
+                
                 image.style.display = 'block';
                 
-                // Запускаємо звук
+                
                 audio.play();
             });
 
