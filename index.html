@@ -3,75 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Кнопка з Сюрпризом</title>
+    <title>Сайт з Градієнтом</title>
 
     <style>
+        /* Анімація для градієнтного переливу */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         body {
-            /* Використовуємо Flexbox для легкого центрування */
+            /* Центрування контенту */
             display: flex;
-            justify-content: center; /* Центрування по горизонталі */
-            align-items: center;    /* Центрування по вертикалі */
-            
-            /* Розтягуємо тіло документа на всю висоту екрана */
+            justify-content: center; 
+            align-items: center;    
             height: 100vh;
             margin: 0;
-            background-color: #f4f4f4; /* Світлий фон */
-            font-family: Arial, sans-serif;
+            font-family: sans-serif;
+            
+            /* Градієнтний фон: Фіолетовий, Синій, Темно-синій */
+            background: linear-gradient(-45deg, #8A2BE2, #4169E1, #00008B, #8A2BE2);
+            background-size: 400% 400%; /* Розтягуємо, щоб було місце для анімації */
+            animation: gradientShift 15s ease infinite; /* Запускаємо анімацію */
+            color: white; /* Білий текст для контрасту */
         }
 
         #surpriseButton {
             padding: 20px 40px;
             font-size: 24px;
             font-weight: bold;
-            color: white;
-            background-color: #007bff; /* Синій колір */
-            border: none;
-            border-radius: 10px;
-            cursor: pointer; /* Змінює курсор при наведенні */
-            transition: background-color 0.3s; /* Плавна зміна кольору */
+            
+            /* СТИЛІ ДЛЯ ПРОЗОРОЇ КНОПКИ З ЕФЕКТОМ */
+            background: rgba(255, 255, 255, 0.1); /* Прозорий фон */
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Ніжна біла рамка */
+            color: white; 
+            cursor: pointer;
+            border-radius: 15px; 
+            
+            /* ЕФЕКТ БЛЮРУ (Glassmorphism) */
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px); /* Підтримка старих браузерів */
+            
+            /* НІЖНА БІЛА ПІДСВІТКА (Тінь по краях) */
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); 
+            transition: all 0.3s ease;
         }
 
         #surpriseButton:hover {
-            background-color: #0056b3; /* Темніший синій при наведенні */
+            /* Ефект при наведенні */
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 1); /* Яскравіша підсвітка */
         }
 
         #mainImage {
-            /* Стилі для фото, коли воно з'явиться */
-            max-width: 90%; /* Щоб не виходило за межі екрана */
+            max-width: 90%; 
             max-height: 90vh;
             border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Красива тінь */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); 
         }
     </style>
 </head>
 <body>
 
-    <button id="surpriseButton">🎁 Натисни Мене!</button>
+    <button id="surpriseButton">нажми мене</button>
 
-    <img id="mainImage" src="your-image.jpg" alt="Ваше фото" style="display: none;">
+    <img id="mainImage" src="your-image.jpg" alt="Секретне фото" style="display: none;">
 
     <audio id="mainAudio" src="your-sound.mp3"></audio>
 
 
     <script>
-        // Чекаємо, поки вся сторінка завантажиться
         document.addEventListener('DOMContentLoaded', function() {
             
-            // Знаходимо наші елементи на сторінці за їхніми ID
             const button = document.getElementById('surpriseButton');
             const image = document.getElementById('mainImage');
             const audio = document.getElementById('mainAudio');
 
-            // Додаємо "слухача подій": що робити, коли на кнопку натиснуть
             button.addEventListener('click', function() {
                 
-                // 1. Ховаємо саму кнопку
+                // Ховаємо кнопку
                 button.style.display = 'none';
                 
-                // 2. Показуємо наше фото
+                // Показуємо фото
                 image.style.display = 'block';
                 
-                // 3. Запускаємо відтворення звуку
+                // Запускаємо звук
                 audio.play();
             });
 
